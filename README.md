@@ -1,4 +1,4 @@
-## Overview
+* ## Overview
 
 We are going to build a System using ARM Templates. The following Azure Services have been integrated:
 ```
@@ -27,16 +27,16 @@ We will update the following file .\ArmDeployers\azuredeploy.parameters.json par
     ```
 1.  __Set__ the subscriptionid. In the code below.
     ```
-     Select-AzSubscription -SubscriptionId "<YourBootCampSubId>"
+     Select-AzSubscription -SubscriptionId "<Your Subscription Id>"
     ```
 ## Task 3: Deploy Resources
 
 1. Navigate to ARM template location
     ```
-    cd "C:\StudentFiles\---TBD---"
+    cd "YOUR-LOCAL-PATH\Azure-Infrastructure-As-Code\"
     ```
 
-1.  __Deploy__  Resources
+2.  __Deploy__  Resources
 
     ```
     .\Deploy-AzureResources.ps1
@@ -60,4 +60,8 @@ In this exercise you used the Azure ARM templates to create a system end to end 
             -Puts the Function key into the keyvault.
             -Sets Function Configuration to read secrets from keyvault
             -Provides permissions to keyvault to the identity of the function.
+            -Create a Cosmos Db Acccount and pushes its secrets directly to keyvault.
+                -by Default it creates a free cosmos db account. If you already have
+                 a free instance, please update the parameter file 
+                 Azure-Infrastructure-As-Code\ArmDeployers\azuredeploy.parameters.json
     ```
