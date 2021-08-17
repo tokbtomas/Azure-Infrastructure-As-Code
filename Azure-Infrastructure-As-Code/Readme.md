@@ -1,10 +1,14 @@
 ## Overview
 
-We are going to build an Azure Function using ARM Templates that is integrated with:
+We are going to build a System using ARM Templates. The following Azure Services have been integrated:
 ```
  - AppInsights
  - Log Analytics 
  - Keyvault
+    -Secret Management
+    -Access Policies Management
+ - Azure Function
+ - Cosmos Db Account
 ```
 
 ## Task 1: Update Parameter File

@@ -46,14 +46,11 @@
     <None Include="ArmResources\Factories\factory-storageaccounts.json" />
     <None Include="ArmResources\Installers\readme.md" />
     <None Include="ArmResources\Scripts\CopyDataFromShare.ps1" />
-    <None Include="Content\Readme.md" />
+    <None Include="README.md" />
     <None Include="Deployment.targets">
       <Visible>False</Visible>
     </None>
     <Content Include="Deploy-AzureResources.ps1" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\Images\" />
   </ItemGroup>
   <Target Name="GetReferenceAssemblyPaths" />
 </Project>
