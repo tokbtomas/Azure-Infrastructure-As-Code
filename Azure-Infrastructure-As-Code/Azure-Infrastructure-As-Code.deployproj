@@ -46,7 +46,6 @@
     <None Include="ArmResources\Factories\factory-storageaccounts.json" />
     <None Include="ArmResources\Installers\readme.md" />
     <None Include="ArmResources\Scripts\CopyDataFromShare.ps1" />
-    <None Include="README.md" />
     <None Include="Deployment.targets">
       <Visible>False</Visible>
     </None>
