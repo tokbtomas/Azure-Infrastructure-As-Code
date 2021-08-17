@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|AnyCPU">
+      <Configuration>Debug</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|AnyCPU">
+      <Configuration>Release</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>2cb969fd-fd27-49fa-bd38-fbfa664634e7</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PrepareForBuildDependsOn>
+    </PrepareForBuildDependsOn>
+  </PropertyGroup>
+  <Import Condition=" Exists('Deployment.targets') " Project="Deployment.targets" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+  <!-- vertag<:>start tokens<:>maj.min -->
+  <Import Condition=" Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Deployment\1.1\DeploymentProject.targets') " Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Deployment\1.1\DeploymentProject.targets" />
+  <!-- vertag<:>end -->
+  <ItemGroup>
+    <Content Include="ArmDeployers\azuredeploy.json" />
+    <Content Include="ArmDeployers\azuredeploy.parameters.json" />
+    <None Include="ArmResources\BaseTemplates\template-appInsights.json" />
+    <None Include="ArmResources\BaseTemplates\template-cosmosdb-accounts.json" />
+    <None Include="ArmResources\BaseTemplates\template-function-hosting-plan.json" />
+    <None Include="ArmResources\BaseTemplates\template-function.json" />
+    <None Include="ArmResources\BaseTemplates\template-keyVault-diagnostics.json" />
+    <None Include="ArmResources\BaseTemplates\template-keyVault-permissions.json" />
+    <None Include="ArmResources\BaseTemplates\template-keyVault-secrets.json" />
+    <None Include="ArmResources\BaseTemplates\template-keyVault.json" />
+    <None Include="ArmResources\BaseTemplates\template-logAnalytics-solutions.json" />
+    <None Include="ArmResources\BaseTemplates\template-logAnalytics.json" />
+    <None Include="ArmResources\BaseTemplates\template-resourceGroups.json" />
+    <None Include="ArmResources\BaseTemplates\template-storageAccount-blob-container-policy.json" />
+    <None Include="ArmResources\BaseTemplates\template-storageAccount-blob-container.json" />
+    <None Include="ArmResources\BaseTemplates\template-storageAccount.json" />
+    <None Include="ArmResources\Components\Common\common-resources.json" />
+    <None Include="ArmResources\Components\Common\secret-manager.json" />
+    <None Include="ArmResources\Components\Data\cosmos-db-repository.json" />
+    <None Include="ArmResources\Components\UserManagement\user-management-api.json" />
+    <None Include="ArmResources\Factories\factory-storageaccounts.json" />
+    <None Include="ArmResources\Installers\readme.md" />
+    <None Include="ArmResources\Scripts\CopyDataFromShare.ps1" />
+    <None Include="Content\Readme.md" />
+    <None Include="Deployment.targets">
+      <Visible>False</Visible>
+    </None>
+    <Content Include="Deploy-AzureResources.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\Images\" />
+  </ItemGroup>
+  <Target Name="GetReferenceAssemblyPaths" />
+</Project>

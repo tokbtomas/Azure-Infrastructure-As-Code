@@ -1,0 +1,105 @@
+{
+  "artifactsSaBaseUri": {
+    "value": "$(artifactsSaBaseUri)"
+  },
+  "artifactsSaSasToken": {
+    "value": "$(artifactsSaSasToken)"
+  },
+  "baseName": {
+    "value": "teen1"
+  },
+  "environment": {
+    "value": "dev"
+  },
+  "deploymentFlags": {
+    "value": {
+      "isNewEnvironment": false,
+      "deployCommonStorage": false,
+      "deploySecrets": false,
+      "setAppKeyVaultPermissions": false,
+      "deployCosmosDb": false,
+      "deployUserMgt": true
+    }
+  },
+  "settings": {
+    "value": {
+      "common": {
+        "tag": "common",
+        "region": "eastus",
+        "componentId": "test123",
+        "logAnalyticsLocation": "westus2",
+        "storageAccountSKU": "Standard_LRS",
+        "storage": {
+          "description": "All Accounts under this section will be named with the baseName plus the namePostFix",
+          "deployStorage": true,
+          "storageAccounts": [
+            {
+              "tag": "global",
+              "StorageAccountName": "Dynamic",
+              "Containers": [
+                "globalcontainer"
+              ],
+              "numberOfInstances": 1,
+              "location": "eastus",
+              "storageVersion": "StorageV2",
+              "storageSKU": "Standard_LRS"
+            }
+          ]
+        }
+      },
+      "secretManager": {
+        "secrets": {
+          "secretList": [
+            {
+              "secretName": "kv-testValidationSecret",
+              "secretValue": "thisIsAtestValidationSecret"
+            }
+          ]
+        },
+        "secretReferences": {
+          "localAdminPassword": "kv-localAdminPassword"
+        },
+        "permissions": {
+          "accountList": [
+            {
+              "accountName": "tomases@microsoft.com",
+              "objectId": "72d02121-eeea-4048-a44a-402b02a1597a"
+            }
+          ]
+        }
+      },
+      "userMgt": {
+        "isFirstDeployment": true,
+        "tag": "usmgt",
+        "hostingPlanSku": {
+          "tier": "Dynamic",
+          "skuName": "Y1"
+        }
+      },
+      "cosmosDbData": {
+        "isFirstDeployment": true,
+        "tag": "data",
+        "enableFreeTier": true,
+        "apiType": "GlobalDocumentDB",
+        "consistecyLevel": "Session",
+        "maxStalenessPrefix": 100,
+        "maxIntervalInSeconds": 5,
+        "replicationLocations": {
+          "secondaryregion": "None"
+        }
+      },
+      "automationAccount": {
+        "hybridWorkerGroup": "Dynamic",
+        "runAsAccountCredName": "sqlservercredential",
+        "runAsAccountCertThumbprint": "TDB",
+        "connectionApplicationId": "TBD",
+        "deployVariables": true,
+        "deploySchedules": true,
+        "deployRunbooks": true,
+        "deployCertificates": true,
+        "deployConnections": true,
+        "deployCredentials": true
+      }
+    }
+  }
+}
