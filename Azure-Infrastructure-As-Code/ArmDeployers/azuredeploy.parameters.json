@@ -13,11 +13,11 @@
   },
   "deploymentFlags": {
     "value": {
-      "isNewEnvironment": false,
-      "deployCommonStorage": false,
-      "deploySecrets": false,
-      "setAppKeyVaultPermissions": false,
-      "deployCosmosDb": false,
+      "isNewEnvironment": true,
+      "deployCommonStorage": true,
+      "deploySecrets": true,
+      "setAppKeyVaultPermissions": true,
+      "deployCosmosDb": true,
       "deployUserMgt": true
     }
   },
@@ -62,7 +62,7 @@
         "permissions": {
           "accountList": [
             {
-              "accountName": "tomases@microsoft.com",
+              "accountName": "tomabc@mabc.com",
               "objectId": "72d02121-eeea-4048-a44a-402b02a1597a"
             }
           ]
@@ -79,7 +79,7 @@
       "cosmosDbData": {
         "isFirstDeployment": true,
         "tag": "data",
-        "enableFreeTier": true,
+        "enableFreeTier": false,
         "apiType": "GlobalDocumentDB",
         "consistecyLevel": "Session",
         "maxStalenessPrefix": 100,

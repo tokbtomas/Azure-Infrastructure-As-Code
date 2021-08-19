@@ -125,11 +125,11 @@
                 },
                 {
                   "name": "AzureWebJobsDashboard",
-                  "value": "[concat(variables('keyvaultSecrets_uri'), 'kv-', parameters('resourceNames').diagnosysStorageAccountName, '-ConnectionString', '/)')]"
+                  "value": "[if(parameters('settings').userMgt.isFirstDeployment, parameters('storageConnectionString'), concat(variables('keyvaultSecrets_uri'), 'kv-', parameters('resourceNames').diagnosysStorageAccountName, '-ConnectionString', '/)'))]"
                 },
                 {
                   "name": "AzureWebJobsStorage",
-                  "value": "[concat(variables('keyvaultSecrets_uri'), 'kv-', parameters('resourceNames').diagnosysStorageAccountName, '-ConnectionString', '/)')]"
+                  "value": "[if(parameters('settings').userMgt.isFirstDeployment, parameters('storageConnectionString'), concat(variables('keyvaultSecrets_uri'), 'kv-', parameters('resourceNames').diagnosysStorageAccountName, '-ConnectionString', '/)'))]"
                 },
                 {
                   "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
