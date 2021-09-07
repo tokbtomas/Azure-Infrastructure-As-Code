@@ -135,6 +135,9 @@
           },
           "resourceNames": {
             "value": "[parameters('resourceNames')]"
+          },
+          "workspaceId": {
+            "value": "[parameters('resourceNames').workspaceId]"
           }
         }
       }

@@ -82,6 +82,20 @@
       "metadata": {
         "description": "to Get the Keyvault where to store the secrets"
       }
+    },
+    "workspaceId": {
+      "type": "string",
+      "defaultValue": "workspaceID",
+      "metadata": {
+        "description": "Full Resource ID for the Log Analytics workspace "
+      }
+    },
+    "logsRetentionDays": {
+      "type": "int",
+      "defaultValue": 30,
+      "metadata": {
+        "description": "the number of days for the logs to be retained if diagnostics is set to storage account"
+      }
     }
   },
   "variables": {
@@ -119,6 +133,103 @@
         "databaseAccountOfferType": "Standard",
         "locations": "[parameters('locations').value]",
         "ipRules": "[parameters('ipRules').value]"
+      }
+    },
+    {
+      "condition": "[not(equals(parameters('workspaceId'),'workspaceID'))]",
+      "name": "[concat(parameters('accountName'), '/Microsoft.Insights/',parameters('accountName'),'-Diagnostics')]",
+      "type": "Microsoft.DocumentDB/databaseAccounts/providers/diagnosticSettings",
+      "apiVersion": "2021-05-01-preview",
+      "dependsOn": [
+        "[concat('Microsoft.DocumentDB/databaseAccounts/', parameters('accountName'))]"
+      ],
+      "properties": {
+        "workspaceId": "[parameters('workspaceId')]",
+        "logAnalyticsDestinationType": "Dedicated",
+        "logs": [
+          {
+            "category": "DataPlaneRequests",
+            "enabled": true,
+            "retentionPolicy": {
+              "days": "[parameters('logsRetentionDays')]",
+              "enabled": true
+            }
+          },
+          {
+            "category": "MongoRequests",
+            "enabled": true,
+            "retentionPolicy": {
+              "days": "[parameters('logsRetentionDays')]",
+              "enabled": true
+            }
+          },
+          {
+            "category": "QueryRuntimeStatistics",
+            "enabled": true,
+            "retentionPolicy": {
+              "days": "[parameters('logsRetentionDays')]",
+              "enabled": true
+            }
+          },
+          {
+            "category": "PartitionKeyStatistics",
+            "enabled": true,
+            "retentionPolicy": {
+              "days": "[parameters('logsRetentionDays')]",
+              "enabled": true
+            }
+          },
+          {
+            "category": "ControlPlaneRequests",
+            "enabled": true,
+            "retentionPolicy": {
+              "days": "[parameters('logsRetentionDays')]",
+              "enabled": true
+            }
+          },
+          {
+            "category": "CassandraRequests",
+            "enabled": true,
+            "retentionPolicy": {
+              "days": "[parameters('logsRetentionDays')]",
+              "enabled": true
+            }
+          },
+          {
+            "category": "GremlinRequests",
+            "enabled": true,
+            "retentionPolicy": {
+              "days": "[parameters('logsRetentionDays')]",
+              "enabled": true
+            }
+          },
+          {
+            "category": "TableApiRequests",
+            "enabled": true,
+            "retentionPolicy": {
+              "days": "[parameters('logsRetentionDays')]",
+              "enabled": true
+            }
+          },
+          {
+            "category": "PartitionKeyRUConsumption",
+            "enabled": true,
+            "retentionPolicy": {
+              "days": "[parameters('logsRetentionDays')]",
+              "enabled": true
+            }
+          }
+        ],
+        "metrics": [
+          {
+            "category": "Requests",
+            "enabled": true,
+            "retentionPolicy": {
+              "days": "[parameters('logsRetentionDays')]",
+              "enabled": false
+            }
+          }
+        ]
       }
     },
     {

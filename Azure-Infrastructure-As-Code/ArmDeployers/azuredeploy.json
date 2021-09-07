@@ -62,7 +62,7 @@
       "appKeyVaultName": "[concat(variables('resourceBaseName'), 'kvapp')]",
       "appKeyVaultId": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',toupper(concat(variables('baseResourceGroupName'), parameters('settings').common.tag)),'/providers/Microsoft.KeyVault/vaults/',variables('resourceBaseName'), 'kvapp')]",
       "workspaceName": "[concat(variables('resourceBaseName'), 'lacommon')]",
-      "workspaceNameId": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',toupper(concat(variables('baseResourceGroupName'), parameters('settings').common.tag)),'/providers/microsoft.operationalinsights/workspaces/',variables('resourceBaseName'), 'lacommon')]"
+      "workspaceId": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',toupper(concat(variables('baseResourceGroupName'), parameters('settings').common.tag)),'/providers/microsoft.operationalinsights/workspaces/',variables('resourceBaseName'), 'lacommon')]"
     }
   },
   "resources": [

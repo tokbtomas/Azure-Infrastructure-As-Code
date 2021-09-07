@@ -221,7 +221,7 @@
             ]
           },
           "workspaceId": {
-            "value": "[parameters('resourceNames').workspaceNameId]"
+            "value": "[parameters('resourceNames').workspaceId]"
           },
           "retentionDays": {
             "value": "365"
