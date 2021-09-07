@@ -15,7 +15,7 @@
   "variables": {},
   "resources": [
     {
-      "name": "[concat(parameters('keyVaultName')[copyIndex()], '/', 'Microsoft.Insights/DiagnosticSettings_workspace')]",
+      "name": "[concat(parameters('keyVaultName')[copyIndex()], '/Microsoft.Insights/',parameters('keyVaultName')[copyIndex()], '-Diagnostics')]",
       "type": "Microsoft.KeyVault/vaults/providers/diagnosticSettings",
       "apiVersion": "2017-05-01-preview",
       "dependsOn": [],
